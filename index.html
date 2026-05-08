@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventaris RW</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2885/2885694.png" type="image/png">
+    <title>Aplikasi RW</title>
     <style>
-        /* Menghilangkan margin dan membuat layar penuh */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Mencegah double scrollbar */
-            background-color: #f4f7f6;
-        }
-        /* Mengatur iframe agar 100% responsif */
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none; /* Menghilangkan garis pinggir */
-            display: block;
-        }
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f4f7f6; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
     </style>
 </head>
 <body>
 
-    <iframe src="https://script.google.com/macros/s/AKfycbx6L6LhbWgaEgW81ODQDYMDVdof6Lr_gIOLQJOdg4PVB29MU2K-7y7IG2r3zfaAW7Mm/exec"></iframe>
+    <script>
+        // 1. Membaca URL tujuan dari link
+        const urlParams = new URLSearchParams(window.location.search);
+        let halaman = urlParams.get('p');
+        
+        // Jika tidak ada perintah, otomatis buka dashboard
+        if (!halaman) { halaman = 'dashboard'; }
+
+        // 2. GANTI DENGAN LINK GOOGLE APPS SCRIPT ANDA (YANG AKHIRANNYA /exec)
+        const linkGoogleScript = "https://script.google.com/macros/s/AKfycbx6L6LhbWgaEgW81ODQDYMDVdof6Lr_gIOLQJOdg4PVB29MU2K-7y7IG2r3zfaAW7Mm/exec";
+
+        // 3. Masukkan ke Iframe dengan mulus
+        document.write('<iframe src="' + linkGoogleScript + '?p=' + halaman + '"></iframe>');
+    </script>
 
 </body>
 </html>
