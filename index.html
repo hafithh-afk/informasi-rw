@@ -12,18 +12,21 @@
 <body>
 
     <script>
-        // 1. Membaca URL tujuan dari link
+        // 1. Membaca perintah halaman (?p=...) dari URL Vercel
         const urlParams = new URLSearchParams(window.location.search);
-        let halaman = urlParams.get('p');
+        const halaman = urlParams.get('p');
         
-        // Jika tidak ada perintah, otomatis buka dashboard
-        if (!halaman) { halaman = 'dashboard'; }
-
         // 2. GANTI DENGAN LINK GOOGLE APPS SCRIPT ANDA (YANG AKHIRANNYA /exec)
-        const linkGoogleScript = "https://script.google.com/macros/s/AKfycbx6L6LhbWgaEgW81ODQDYMDVdof6Lr_gIOLQJOdg4PVB29MU2K-7y7IG2r3zfaAW7Mm/exec";
+        const linkGoogleScript = "MASUKKAN_LINK_APPS_SCRIPT_ANDA_DISINI";
 
-        // 3. Masukkan ke Iframe dengan mulus
-        document.write('<iframe src="' + linkGoogleScript + '?p=' + halaman + '"></iframe>');
+        // 3. Logika Navigasi: Jika ada 'p', buka halaman itu. Jika tidak ada, buka Menu Utama.
+        let finalUrl = linkGoogleScript;
+        if (halaman) {
+            finalUrl = linkGoogleScript + "?p=" + halaman;
+        }
+
+        // Tampilkan website di dalam bingkai
+        document.write('<iframe src="' + finalUrl + '"></iframe>');
     </script>
 
 </body>
